@@ -3,7 +3,7 @@ import { useState } from 'react';
 import {toast } from 'react-toastify';
 
 
-const EditJobPages = (updatedJobSubmit) => {
+const EditJobPages = ({ updateJobSubmit }) => {
     const job = useLoaderData();
 
     const [title, setTitle] = useState(job.title);
@@ -13,7 +13,7 @@ const EditJobPages = (updatedJobSubmit) => {
     const [salary, setSalary] = useState(job.salary);
     const [companyname, setCompanyname] = useState(job.company.name);
     const [companyDescription, setcompanyDescription] = useState(job.company.description);
-    const [contactEmail, setcontactEmail] = useState(job.company.contaactEmail);
+    const [contactEmail, setcontactEmail] = useState(job.company.contactEmail);
     const [contactPhone, setcontactPhone] = useState(job.company.contactPhone);
     
     const navigate = useNavigate();
@@ -37,11 +37,11 @@ const EditJobPages = (updatedJobSubmit) => {
                 },
     };
 
-    updatedJobSubmit(updatedJob);
+    updateJobSubmit(updatedJob);
 
     toast.success('Job updated Successfully');
 
-    return Navigate(`/jobs/${id}`);
+    return navigate(`/jobs/${id}`);
 
 };
   return (
